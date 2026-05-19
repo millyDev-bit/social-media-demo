@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    perspective: 1000px; 
+    overflow: hidden;
+}
+
+.card-container{
+    width: 400px;
+    height: 680px; 
+    position: relative;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.card-container.flipped{
+    transform: rotateY(180deg);
+}
+
+.form-card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.signup-side{
+    transform: rotateY(180deg);
+}
+
+h2{
+    text-align: center;
+    color: #302b63;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+}
+
+.input-group{
+    width: 100%;
+}
+
+.input-group p{
+    margin: 0 0 5px 5px;
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+}
+
+input{
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fdfdfd;
+}
+
+input:focus{
+    border-color: #302b63;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(48, 43, 99, 0.1);
+}
+
+button{
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #302b63 0%, #24243e 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(48, 43, 99, 0.3);
+    opacity: 0.95;
+}
+
+button:active{
+    transform: translateY(-1px);
+}
+
+.toggle-btn{
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.toggle-btn span{
+    color: #302b63;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.toggle-btn span:hover{
+    text-decoration: underline;
+    color: #4e44bb;
+}
+
+.error-msg{
+    position: fixed;
+    top: -100px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4b2b;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(255, 75, 43, 0.3);
+    z-index: 9999;
+    font-size: 14px;
+    font-weight: 600;
+    transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.error-msg.show{
+    top: 20px; 
+}
+
+@keyframes fadeIn{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 450px){
+    .card-container {
+        width: 90%;
+        height: 650px;
+    }
+}
+
+.welcome-section{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-icon{
+    font-size: 50px;
+    background: #f0f0f0;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: block;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.welcome-section p{
+    color: #888;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.login-side form{
+    justify-content: flex-start; 
+    gap: 20px; 
+}
+
+.login-side button{
+    margin-top: 20px;
+}
+
+.verification-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.verification-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    height: 100%; 
+    padding: 40px !important;
+}
+
+.mail-icon{
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+#msg-box {
+    width: 100%;
+    min-height: 80px; 
+    background: #fdfdfd;
+    border-radius: 15px;
+    border: 1px solid #eee; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); 
+}
+
+#label-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.timeout-text {
+    color: #ff4b2b;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#code-display{
+    color: #ff4b2b;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+
+.verification-container form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#action-btn{
+    min-height: 55px;
+    white-space: nowrap; 
+}
+
+.notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    z-index: 9999;
+    font-size: 14px;
+    font-weight: 600;
+    transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.notification.show {
+    top: 20px;
+}
+
+.error-bg {
+    background: #ff4b2b;
+    box-shadow: 0 10px 25px rgba(255, 75, 43, 0.3);
+}
+
+.success-bg {
+    background: #2ecc71;
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3);
+}
